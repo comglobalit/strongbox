@@ -1,0 +1,185 @@
+                table {
+			background-color: #B0B0C0;
+                        border: medium #B0B0C0 ridge;
+                }
+
+                caption {
+			background-color: #B0B0C0;
+                        border-style: ridge;
+                        border-width: 4px;
+                }
+
+		th        {
+				padding: 0.5em;
+		}
+		td	{
+			padding: 0.5em;
+		}
+                                                                                                                             
+                .status {
+			border-bottom: 1px dotted; 
+                        cursor: help;
+                }
+
+
+
+	       	form {
+                        background-color: #B0B0C0;
+                        border: medium #B0B0C0 ridge;
+                        width: 40em; 
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 0.6em;
+                        margin-bottom: 0.6em;
+                        padding: 0.6em;
+                       -moz-border-radius: 10px;
+                       -webkit-border-radius: 10px;
+                       -moz-box-shadow: 3px 3px 1px #999;
+                       -webkit-box-shadow: 3px 3px 1px #999;
+                       /* border: solid 1px #CCC; */
+                  }
+                                                                                                                             
+                                                                                                                             
+         fieldset    {
+                        border-width: 0px;
+                        padding: .3em;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                     }
+
+         legend      {
+                        margin-top: 0.5em;
+                        font-weight: bold;
+                     }
+                                                                                                                             
+                                                                                                                             
+         fieldset fieldset {
+                        border-width: 2px;
+                     }
+                                                                                                                             
+         fieldset fieldset legend {
+                        font-weight: normal;
+                    }
+
+
+                                                                                                                             
+        .submit      {
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 1em;
+                        text-align: center;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+        }
+
+
+        label        {
+                        display: block;
+                        text-align: right;
+                        margin-right: 6em;
+                     }
+                                                                                                                             
+         fieldset fieldset label {
+                        text-align: center;
+                        margin-right: 1em;
+                     }
+                                                                                                                             
+                                                                                                                             
+        .date        {
+                                                                                                                             
+                        padding: .5em 2em .5em 2em;
+                     }
+                                                                                                                             
+        .date label  {
+                        float: left;
+                        font-size: small;
+                        text-align: center;
+                     }
+        .date label input, select {
+                        display: block;
+                     }
+                                                                                                                             
+                                                                                                                             
+                                                                                                                             
+         #show_codes label {
+                        float: left;
+                        width: 45%;
+                        text-align: left;
+                        font-size: small;
+                                                                                                                             
+                     }
+                                                                                                                             
+        input, select {
+                        margin-left: 0.1em;
+                        margin-right: 0.1em;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-box-shadow: 2px 2px 1px #999;
+                        -webkit-box-shadow: 2px 2px 1px #999;
+                     }
+                                                                                                                             
+                                                                                                                             
+        #copyright   {
+                        font-size: small;
+                     }
+                                                                                                                             
+        #reports, #usermanage, #manual  {
+                        border: medium ridge #B0B0C0;
+                        margin-bottom: 2em;
+                        width: auto;
+                        max-width: 75%;
+                     }
+                                                                                                                             
+         #reports a, #usermanage a, #manual a {
+                      display: block;
+                       background-color: #B0B0C0;
+         }
+                                                                                                                             
+        table.refered  {
+        display: none;
+        margin-left: 3em;
+}
+                                                                                                                             
+                                                                                                                             
+body {
+       margin-top: 5%;
+       background: rgb(255, 255, 255); /* The Fallback for IE */
+       background: rgba(255, 255, 255, 0.7);
+}
+
+#summary {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 4em;
+}
+                                                                                                                             
+#summary td {
+        border: thin black solid;
+        padding: 10px;
+}
+                                                                                                                             
+#report_home_link {
+        float: right;
+        margin-right: 4em;
+}
+
+
+#submit1 {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 3px 3px 1px #999;
+    -webkit-box-shadow: 3px 3px 1px #999;
+    border: thin ridge #568294;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: bold;
+    font-size: larger;
+    margin: 0.5em;
+}
+
+#turingimage {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+

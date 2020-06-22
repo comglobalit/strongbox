@@ -1,0 +1,49 @@
+
+# StrongBox version 2.6
+# Copyright 2001, 2002, 2003, 2004, 2005, 2006, 2007, 
+# #         2008, 2009, 2010, 2011
+# Ray Morris <support@bettercgi.com>
+                                                                                
+
+# http://www.bettercgi.com/strongbox/	#
+#							  #
+#		-- Warning --				  #
+# It is a federal crime to knowingly make 		  #
+# unauthorized copies of copyrighted software.		  #
+# The penalty for making illegal copies of this		  #
+# software or copying its general operation is		  #
+# a fine of up to $250,000 and imprisonment for		  #
+# five years.  Additionally, violators will be		  #
+# assessed civil damages.				  #
+# This software is copyright 2002, 2003, 2004, 2005, 2006 #
+# 2007, 2008, 2009, 2010, 2011 by Ray B. Morris           #
+# <support@webmastersguide.com>                           #
+# All rights reserved.					  #
+# If you have purchased a license to use this	 	  #
+# software, you have NOT been granted the right		  #
+# to make additional copies, to modify any part,	  #
+# or to distribute any part of the software.		  #
+# Illegal copying will incur liquidated damges in the     #
+# amount of US $1,000 per site.
+
+# Should either a) the author become medically unable to support 
+# the software or b) the official Strongbox site, currently 
+# bettercgi.com, be unavailable for six months presumably 
+# due to the author being incapacitated all rights shall pass 
+# as follows:
+
+# To Elias Torres Arroyo.
+# If Elias Torres Arroyo shall be unable or unwilling to 
+# maintain the software, to Allison Reinbolt.
+# If Allison Reinbolt is unable to maintain the software 
+# or not wish to do so, it shall be licensed under the 
+# Gnu Public License, version 2 or later.
+# In any event wherein rights pass to anyone other than 
+# the author, Ray Morris, it is requested that 10% of all
+# gross revenue from Strongbox be given to Benson Tang
+# of Singapore (tazzycorner@yahoo.com.sg), up to the amount 
+# of $100,000 to Mr. Tang.
+# This provision may be withdrawn or modified at any time
+# by a written statement signed by Ray Morris.
+
+

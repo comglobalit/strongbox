@@ -1,0 +1,74 @@
+/* thumbnail list */
+
+	ul#thumbs, ul#thumbs li {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	
+	ul#thumbs li {
+		float:left;
+		margin-right:5px;
+		border:1px solid #999;
+		padding:2px;
+	}
+	ul#thumbs span { 
+		display:block;
+		float:left;
+		width:80px;
+		height:100px;
+		line-height:120px;
+		overflow:hidden;
+		position:relative;
+		z-index:1;
+	}
+	ul#thumbs span img {
+		float:left;
+		position: relative;
+		top:-10px;
+		left:-10px;
+	}
+	
+	/* mouse over */
+	
+		ul#thumbs span:hover {
+			overflow:visible;
+			z-index:1000;
+			border:none;
+		}
+		ul#thumbs span:hover img {
+			border:1px solid #999;	
+			background:#fff;
+		}	
+	
+	/* // mouse over */
+
+	/* clearing floats */
+	
+		ul#thumbs:after, li#thumbs:after {
+			content:"."; 
+			display:block; 
+			height:0; 
+			clear:both; 
+			visibility:hidden;
+			}
+		ul#thumbs, li#thumbs {
+			display:block;
+			}
+		/*  \*/
+		ul#thumbs, li#thumbs {
+			min-height:1%;
+			}
+		* html ul#thumbs, * html li#thumbs {
+			height:1%;
+			}	
+	
+	/* // clearing floats */
+
+img.chickcaptcha { opacity: 0.7; }
+
+/* // thumbnail list */
+
+
+#centerchicks { width: 280px; margin-left: auto; margin-right: auto; }
+

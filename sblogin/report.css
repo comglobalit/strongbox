@@ -1,0 +1,131 @@
+        form         {
+                        background-color: #B0B0C0;
+                        border: medium #B0B0C0 ridge;
+                        width: 45em;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 1em;
+                        margin-bottom: 1em;
+                  }
+
+
+         fieldset    {
+                        border-width: 0px;
+                        padding: .3em;
+                        
+                     }
+
+         legend      {
+                        margin-top: 0.5em;
+                        font-weight: bold;
+                     }
+
+
+         fieldset fieldset {
+                        border-width: 2px;
+                     }
+
+         fieldset fieldset legend {
+                        font-weight: normal;
+                     }
+
+         
+
+
+        .submit      {
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 1em;
+                        text-align: center;
+                     }
+
+
+        label        {
+                        display: block;
+                        text-align: right;
+                        margin-right: 6em;
+                     }
+
+         fieldset fieldset label {
+                        text-align: center;
+                        margin-right: 1em;
+                     }
+
+
+        .date        {
+
+                        padding: .5em 2em .5em 2em;
+                     }
+
+        .date label  {
+                        float: left;
+                        font-size: small;
+                        text-align: center;
+                     }
+
+        .date label input, select {
+                        display: block;
+                     }
+
+
+
+         #show_codes label {
+                        float: left;
+                        width: 45%;
+                        text-align: left;
+                        font-size: small;
+			
+                     }
+
+        input, select {
+                        margin-left: 0.1em;
+                        margin-right: 0.1em;
+                     }
+
+
+        #copyright   {
+                        font-size: small;
+                     }
+
+        .section  {
+                        border: medium ridge #B0B0C0; 
+                        margin-bottom: 2em;
+                        width: auto;
+                     }
+
+         .section a {
+                        display: block;
+                        background-color: #B0B0C0;
+         }
+
+        table.refered  {
+        display: none;
+        margin-left: 3em;
+}
+                                                                                                                             
+                                                                                                                             
+                                                                                                                             
+body {
+        margin-top: 5em;
+        max-width: 80%;        
+        margin-left: auto;
+        margin-right: auto;
+}
+                                                                                                                             
+#summary {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 4em;
+}
+                                                                                                                             
+#summary td {
+        border: thin black solid;
+        padding: 10px;
+}
+
+#logout_link {
+  float: right;
+}
+

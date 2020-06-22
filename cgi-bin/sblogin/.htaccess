@@ -1,0 +1,38 @@
+# Symlinks must be set for Plesk servers
+# Options +SymLinksIfOwnerMatch
+
+ 
+RewriteEngine On
+<IfModule mod_headers.c>
+    Header add X-UA-Compatible IE=edge
+</IfModule>
+
+
+RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/disabled_ips/%{REMOTE_ADDR} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/blocked_ips/%{REMOTE_ADDR} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/blocked_ips/all -f
+RewriteRule login.cgi /sblogin/badlogin.php [R,L]
+
+RewriteCond %{DOCUMENT_ROOT}/../cgi-bin/sblogin/.htcookie/disabled_ips/%{REMOTE_ADDR} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/../cgi-bin/sblogin/.htcookie/blocked_ips/%{REMOTE_ADDR} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/../cgi-bin/sblogin/.htcookie/blocked_ips/all -f
+RewriteRule login.cgi /sblogin/badlogin.php [R,L]
+
+RewriteCond %{HTTP_USER_AGENT} ([^/]{250}).
+RewriteRule /* - [E=HTTP_USER_AGENT:%1]
+
+RewriteRule ^\.ht - [F]
+
+
+deny from all
+<FilesMatch "\.(cgi)$">
+    allow from all
+    <IfModule mod_headers.c>
+        Header set Cache-Control "no-cache, no-store"
+    </IfModule>
+</FilesMatch>
+
+
+Options -Indexes
+
+

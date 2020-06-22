@@ -1,0 +1,9 @@
+# PROCESSOR INSTALLERS -  Do not replace the .htaccess file.
+# To find or set the path to the .htpasswd file,
+# look in cgi-bin/sblogin/config.pl
+# To add dialer IPs, edit the top section of the .htaccess, 
+# using the example IPs as a guide. 
+# Do not use any allow or deny directives.
+# This .htaccess uses only pattern matching
+                                                                                                    
+

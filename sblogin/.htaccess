@@ -1,0 +1,24 @@
+AddType text/html .shtml
+AddHandler server-parsed .shtml
+Options +FollowSymLinks +Includes
+
+AddType text/css .css
+
+# AcceptPathInfo needed for Apache 2, will not work with Apache 1.3
+AcceptPathInfo On
+
+
+<IfModule mod_headers.c>
+    Header add X-UA-Compatible IE=edge
+    <FilesMatch "(shtml|html|cgi|asp|php)$">
+        Header set Cache-Control "no-cache, no-store"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_env.c>
+  # Encoding errors with firefox
+  # when turing plugin cgi is called
+  # with PHP's virtual() from login page
+  SetEnv no-gzip dont-vary
+</IfModule>
+

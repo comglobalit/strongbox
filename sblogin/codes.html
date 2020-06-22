@@ -1,0 +1,280 @@
+<html>
+
+
+<head>
+	<style type="text/css">
+		h1 {
+			font-size: 2em;
+		}
+
+		dt {
+			margin-top: 1.5em;
+		}
+
+		dl {
+			max-width: 25em;
+		}
+	</style>
+</head>
+
+
+
+<body>
+
+
+    <h1>Strongbox login attempt status codes</h1>
+
+    <dl>
+
+                <dt>
+		  <a name="attempts">attempts</a>
+		</dt>
+                <dd>
+		  This IP tried too many incorrect user/pass combinations.
+                  May be a brute force or dictionary attack. IP suspended.
+                </dd>
+
+                <dt>
+		  <a name="avs">avs45err</a>
+ 		</dt>
+                <dd>
+		  The AVS server returned a 400 or 500 class error.
+		</dd>
+
+                <dt>
+                  <a name="badadmin">badadmin</a>
+                </dt>
+                <dd>
+                  This was a login attempt to the Strongbox Admin Area, 
+                  but this username does not exist in the Strongbox 
+                  Admin password file.
+                </dd>
+
+                <dt>
+                  <a name="badadmpw">badadmpw</a>
+                </dt>
+                <dd>
+                  This was a login attempt to the Strongbox Admin Area, 
+                  but the password entered did not match what is stored 
+                  in the Strongbox Admin password file. By chance, does
+                  this username also exist where the regular member data
+                  is stored?  If so, this will be problematic, so either
+                  it should be removed from where it is stored with the
+                  regular member data is located or a different Strongbox
+                  Admin Account should be created.  For more information
+                  about Strongbox Admin Users, please see the Online 
+                  Owner's Manual.
+                </dd>
+
+                <dt>
+		  <a name="badchars">badchars</a>
+		</dt>
+                <dd>
+ 		  The user/pass contained an invalid character, like a null 
+		  or backtick.
+                </dd>
+
+                <dt>
+                  <a name="badexpir">badexpir</a>
+                </dt>
+                <dd>
+                  Expired.  User was created in the Strongbox Admin Area and its expiration has passed.
+                </dd>
+
+                <dt>
+		  <a name="badimage">badimage</a>
+		</dt>
+                <dd>
+		  Wrong turing word (enter the secret word show in the image...)
+                </dd>
+
+                <dt>
+		  <a name="badpuser">badpuser</a>
+		</dt>
+                <dd>
+		  No such username exists.
+                </dd>
+
+                <dt>
+		 <a name="badpword">badpword</a>
+		</dt>
+                <dd>
+		  Wrong password.
+                </dd>
+
+                <dt>
+                 <a name="badrefer">badrefer</a>
+                </dt>
+                <dd>
+                    The person came from a site like easypasswords.com or ultrapasswords.com with the word "pass" or "hack" in the name.
+                </dd>
+
+                <dt>
+		  <a name="baduname">baduname (deprecated)</a>
+		</dt>
+                <dd>
+		  No such username exists.
+                </dd>
+
+                <dt>
+                  <a name="badcntry">badcntry</a>
+                </dt>
+                <dd>
+                  Country manually banned in config.pl.
+                </dd>
+
+                <dt>
+		  <a name="dis_cnty">dis_cnty</a>
+		</dt>
+                <dd>
+		  People from way too many countries using this username.
+                   Username permanently disabled.
+                </dd>
+
+                <dt>
+                  <a name="dis_isps">dis_isps</a>
+                </dt>
+                <dd>
+                  People from too many ISPs using this username.
+                   Username permanently disabled.
+                </dd>
+
+                <dt>
+                  <a name="dis_spdr">dis_spdr</a>
+                </dt>
+                <dd>
+                  The Proactive Spider found this user name on
+                  a password site.  Username disabled until it
+                  is manually re-enabled by the webmaster.
+                </dd>
+
+                <dt>
+                  <a name="dis_uniq">dis_uniq</a>
+                </dt>
+                <dd>
+                  Way too many IP ranges using this username.
+                  It's probably on a password site. Username disabled
+                  permanently.
+                </dd>
+
+                <dt>
+		  <a name="emptyurp">emptyUrP</a>
+		</dt>
+                <dd>
+		  Username or password field left empty.
+                </dd>
+
+                <dt>
+		  <a name="goodhndf">goodhndf</a>
+		</dt>
+                <dd>
+		  Successful handoff from another site.
+                </dd>
+
+		<dt>
+		  <a name="goodpage">goodpage</a>
+		</dt>
+		<dd>
+		  Successful login.
+		</dd>
+
+		<dt>
+		  <a name="gooduser">gooduser</a>
+		</dt>
+		<dd>
+		  Successful login.
+		</dd>
+		
+                <dt>
+		  <a name="htpffail">htpffail</a>
+		</dt>
+                <dd>
+		  Couldn't open .htpasswd.  Also generalized to
+                  MySQL or other data stores to mean the user/pass
+                  lookup could not be performed.
+                </dd>
+		
+                <dt>
+		  <a name="logffail">logffail</a>
+		</dt>
+                <dd>
+		  Couldn't open the log file.  If this code shows up in 
+		  the log, something went very wrong.
+                </dd>
+
+                <dt>
+                  <a name="manipblk">manipblk</a>
+                </dt>
+                <dd>
+                  This login attempt came from an IP address that has 
+                  been manually suspended by a Strongbox Admin user 
+                  through Strongbox Admin Area.
+                </dd>
+	
+		<dt>
+		  <a name="opnproxy">opnproxy</a>
+		</dt>		
+		<dd>
+		  Access from open proxy.  Access was allowed, 
+		  but Strongbox is watching this IP carefully.
+		</dd>
+		
+                <dt>
+                  <a name="shrthead">shrthead</a>
+                </dt>
+                <dd>
+                  Invalid HTTP request sent by browser, usually
+                  either the result of badly configured anonymous / privacy software
+                  or a poorly written cracking program.
+                  "personal privacy", "anonymizer", 
+or "firewall" software will only do this
+when the settings are jacked up to super 
+maximum.  Typically software that can do 
+this will be marketed to "prevent web sites
+from identifying you", so I might tell a member 
+that the software did exactly what it claimed - 
+it prevented us from identifying them as a 
+legitimate member.
+                  If it's actually a live user, the user will likely have problems with many sites
+                  and should set their "firewall" software to it's
+                  default settings or turn it off entirely.
+                </dd>
+
+		<dt>
+		  <a name="totllgns">totllgns</a>
+		</dt>
+		<dd>
+		  Just too darn many logins recently with this username, 
+		  possibly all from the same IP.
+		</dd>
+	
+                <dt>
+		  <a name="uniqcnty">uniqcnty</a>
+		</dt>
+                <dd>
+		  People from too many countries using this username.
+                  It may be on a password site.  Username suspended.
+                </dd>
+
+                <dt>
+		  <a name="uniqisps">uniqisps</a>
+		</dt>
+                <dd>
+		  People from too many different ISPs using this username.
+                  It may be on a password site.  Username suspended.
+                </dd>
+
+                <dt>
+		  <a name="uniqsubs">uniqsubs</a>
+		</dt>
+                <dd>
+		  Too many IP ranges using this username.
+                  It may be on a password site.  Username suspended.
+                </dd>
+
+	    </dl>
+
+</body>
+</html>
+
+

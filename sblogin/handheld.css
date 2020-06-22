@@ -1,0 +1,107 @@
+                body {
+                    margin-top: 2px;
+                }
+
+                table {
+			background-color: #FFFFB0;
+                        border: medium #B0B0C0 ridge;
+                }
+
+                caption {
+			background-color: #B0B0C0;
+                        border-style: ridge;
+                        border-width: 4px;
+                }
+
+		th        {
+				padding: 0.5em;
+		}
+		td	{
+			padding: 0.5em;
+		}
+                                                                                                                             
+                .status {
+			border-bottom: 1px dotted; 
+                        cursor: help;
+                }
+
+
+
+	       	form {
+                        background-color: #B0B0C0;
+                        border: medium #B0B0C0 ridge;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: auto;
+                  }
+                                                                                                                             
+                                                                                                                             
+         fieldset    {
+                        border-width: 0px;
+                        padding: .3em;
+                                                                                                                             
+                     }
+                                                                                                                             
+         legend      {
+                        margin-top: 0.5em;
+                        font-weight: bold;
+                     }
+                                                                                                                             
+                                                                                                                             
+         fieldset fieldset {
+                        border-width: 2px;
+                     }
+                                                                                                                             
+         fieldset fieldset legend {
+                        font-weight: normal;
+                    }
+
+
+                                                                                                                             
+        .submit      {
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 1em;
+                        text-align: center;
+                     }
+                                                                                                                             
+                                                                                                                             
+        label        {
+                        display: block;
+                        text-align: right;
+                     }
+                                                                                                                             
+         fieldset fieldset label {
+                        text-align: center;
+                        margin-right: 1em;
+                     }
+                                                                                                                             
+                                                                                                                             
+        .date        {
+                                                                                                                             
+                        padding: .5em 2em .5em 2em;
+                     }
+                                                                                                                             
+        .date label  {
+                        float: left;
+                        font-size: small;
+                        text-align: center;
+                     }
+        .date label input, select {
+                        display: block;
+                     }
+                                                                                                                             
+                                                                                                                             
+                                                                                                                             
+        input, select {
+                        margin-left: 0.1em;
+                        margin-right: 0.1em;
+                        display: block;
+                     }
+                                                                                                                             
+                                                                                                                             
+        #copyright   {
+                        font-size: small;
+                     }
+                                                                                                                             

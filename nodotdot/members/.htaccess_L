@@ -1,0 +1,144 @@
+# StrongBox version 2.5
+# Copyright 2001 - 2010
+# Ray Morris <support@bettercgi.com>
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   # PROCESSOR INSTALLERS -  Do not replace this file.
+   # To find or set the path to the .htpasswd file,
+   # look in cgi-bin/sblogin/config.pl
+
+   # To add dialer IPs, edit the section below.
+   # Do not use any allow or deny directives.
+   # This .htaccess uses only pattern matching.
+
+
+# The password file is located:
+# $ENV{'DOCUMENT_ROOT'}/#HTPASSWD#
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+RewriteEngine On
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~ BEGIN - THESE LINES ARE NOT PART OF STRONGBOX ~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~ END - THESE LINES ARE NOT PART OF STRONGBOX ~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+AddType video/x-ms-wmv .wmv
+
+
+#  RewriteCond %{REMOTE_ADDR} ^80\.160\.70\.159 [OR]
+#  RewriteCond %{REMOTE_ADDR} ^195\.243\.119\.43 [OR]
+#  RewriteCond %{REMOTE_ADDR} ^213\.244\.15\.21 [OR]
+#  RewriteCond %{REMOTE_ADDR} ^213\.244\.15\.64 [OR]
+#  RewriteCond %{REMOTE_ADDR} ^212\.155\.171\.
+#  RewriteRule /* - [L]
+
+
+# Work around Apache 2.0 bug
+# AcceptPathInfo On
+<IfDefine APACHE2>
+ AcceptPathInfo on
+</IfDefine>
+
+# Symlinks must be set for Plesk servers
+# Options +SymLinksIfOwnerMatch
+
+ RewriteCond %{HTTP_USER_AGENT} PLAYSTATION 
+ RewriteCond %{HTTP_ACCEPT} ^$ 
+ RewriteRule /* - [E=HTTP_ACCEPT:ImAStupidPlaystation]
+
+ RewriteCond %{HTTP_USER_AGENT} (.{1,250})
+ RewriteRule /* - [E=useragent:%1]
+ RewriteCond %{HTTP_ACCEPT} (.{1,250})
+ RewriteRule /* - [E=accept:%1]
+
+
+ RewriteRule /* - [E=host_root:%{HTTP_HOST}]
+ RewriteCond %{HTTP_HOST} ^sb[0-9a-z]+\.(.*)
+ RewriteRule /* - [E=host_root:%1,S=1]
+ RewriteCond %{HTTP_HOST} ^www\.(.*)
+ RewriteRule /* - [E=host_root:%1]
+
+ RewriteCond %{HTTP_COOKIE} sbsession\ ?=\ ?(sb[0-9a-z]+) 
+ RewriteRule /* - [E=sbsession:%1]
+
+ RewriteCond %{QUERY_STRING} sbsession=(sb[0-9a-z]+) 
+ RewriteRule /* - [E=sbsession:%1]
+
+ RewriteCond %{HTTP_REFERER} ^http://(sb[0-9a-z]+)\.%{ENV:host_root}
+ ReWriteRule /* - [E=sbsession:%1]
+                                                                                                  
+ RewriteCond %{HTTP_HOST} ^(sb[0-9a-zA-Z]+)\. 
+ RewriteRule /* - [E=sbsession:%1]
+
+
+ # IE on Mac may include the port in the host header
+ RewriteCond %{ENV:host_root} ^(.*):80$
+ RewriteRule /* - [E=host_root:%1]
+
+ RewriteRule \.ram http://%{ENV:sbsession}.%{ENV:host_root}/cgi-bin/sblogin/makeram.cgi%{REQUEST_URI} [R,NS,L,NC,QSA]
+
+ RewriteCond %{ENV:sbsession} ^$
+ RewriteRule /* http://%{ENV:host_root}/sblogin/login.php%{REQUEST_URI} [L,QSA]
+
+ RewriteCond %{HTTP_ACCEPT} html 
+ RewriteCond %{HTTP_USER_AGENT} ^$ 
+ RewriteRule /* http://%{ENV:host_root}/sblogin/login.php%{REQUEST_URI} [L,QSA]
+
+ RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
+ RewriteRule /*slurp* /cgi-bin/sblogin/anti_s.l.u.r.p.cgi
+
+ BrowserMatch "MSIE" brokenvary=1
+ BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+ BrowserMatch "Opera" !brokenvary
+ SetEnvIf brokenvary 1 force-no-vary
+
+
+ RewriteCond %{HTTP_COOKIE} &sbuser\ ?=\ ?([^;\&]+) 
+ RewriteRule /* - [E=REMOTE_USER:%1]
+
+# For Throttlebox
+# RewriteRule /* - [E=REMOTE_USER:${sbuser:%{ENV:sbsession}|%{ENV:REMOTE_USER}}]
+# RewriteCond %{ENV:sbruleset} ^$
+# RewriteRule /* - [E=sbruleset:default]
+
+
+ # For PHP scripts that don't use the standard variable REMOTE_USER:
+ RewriteRule /* - [E=PHP_AUTH_USER:%{ENV:REMOTE_USER}]
+
+ RewriteCond %{HTTP_HOST} !^sb
+ RewriteCond %{REQUEST_URI} !sbredir.php
+ RewriteRule /* http://%{ENV:sbsession}.%{ENV:host_root}%{REQUEST_URI} [R,L]
+
+ RewriteCond %{ENV:site_id} !1
+ RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/%{ENV:sbsession}.%{ENV:host_root}/%{REMOTE_ADDR} -f
+ RewriteRule /* - [L]
+
+ RewriteRule ([^/]*)$ - [E=basename:$1]
+ RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/%{ENV:sbsession}.%{ENV:host_root}/%{ENV:basename} -f
+ RewriteRule /* - [L]
+
+
+ RewriteRule (\.asf|\.asx|\.avi|\.mov|\.movie|\.mp4|\.mpe|\.mpeg|\.mpg|\.mp4|\.rar|\.rm|\.ogm|\.qt|\.wm|\.wmx|\.wvx|\.wma|\.wax|\.wmz|\.wmv|\.wmd|\.zip)$ http://%{ENV:sbsession}.%{ENV:host_root}/cgi-bin/sblogin/video2.cgi%{REQUEST_URI} [R,NS,L,NC,QSA]
+
+ RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/%{ENV:sbsession}.%{ENV:host_root}/%{ENV:useragent}/%{ENV:accept}/%{ENV:sbsession}.%{ENV:site_id} -f [OR]
+ RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/%{ENV:sbsession}.%{ENV:host_root}/%{ENV:useragent}/%{ENV:accept}/%{ENV:sbsession}.%{ENV:host_root} -f 
+ RewriteRule /* - [L]
+
+ RewriteCond %{HTTP_ACCEPT} !html
+ RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie/%{ENV:sbsession}.%{ENV:host_root}/%{ENV:useragent}/ -d
+ RewriteRule /* - [L]
+
+ RewriteRule /* http://%{ENV:host_root}/sblogin/login.php%{REQUEST_URI} [L,QSA]
+
+

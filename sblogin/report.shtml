@@ -1,0 +1,58 @@
+<html>
+   <head>
+      <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+      <title>StrongBox Reports Login</title>
+      <script type="text/javascript" src="/sblogin/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript" src="/sblogin/formfiller.js"></script>
+      <script type="text/javascript" src="/sblogin/cookies.js"></script>
+      <script type="text/javascript" src="/sblogin/login.js"></script>
+      <link rel="STYLESHEET" type="text/css" href="/sblogin/report.css"></link>
+
+    <script type="text/javascript">
+    function initpage() {
+        document.turingimage.src = '/cgi-bin/sblogin/turingimage.cgi?' + Math.random();
+        prefillForm();
+    }
+    </SCRIPT>
+</head>
+<body>
+
+<center>
+
+  <h3>Strongbox Admin Area</h3>
+  If you were already logged in, your session may have expired.<br><br>
+
+<FORM ACTION="/cgi-bin/sblogin/login.cgi" METHOD="POST" NAME="login" id="login" onSubmit="saveForm(this)">
+<input type="hidden" name="goodpage" value="/sblogin/report/">
+<TABLE CELLSPACING="10" CELLPADDING="0" BORDER="0" style="font-weight: normal; font-size: medium">
+ <TR>
+  <TD><B>Username:</b></td><td><INPUT TYPE="TEXT" NAME="uname" id="uname" SIZE="20"></TD>
+ </tr>
+ <tr>
+  <TD><B>Password:</b></td><td><INPUT TYPE="PASSWORD" NAME="pword" id="pword" SIZE="20"></TD>
+ </tr>
+ <tr>
+    <td colspan="2" align="CENTER">
+        <!--#include virtual="/cgi-bin/sblogin/turingpi.cgi" -->
+    </td>
+ </tr>
+ <tr>
+    <td colspan="2" align="CENTER">
+	<br /><b>Save my password:</b> <input name="savepassword" type=checkbox CHECKED>
+    </td>
+ </tr>
+ <tr>
+    <td colspan="2" align="CENTER">
+	<INPUT TYPE="SUBMIT" NAME="submit1" id="submit1" VALUE="Login">
+    </TD>
+ </TR>
+
+</TABLE>
+</FORM>
+
+</center>
+<br />
+<small>Security by <a href="https://www.comglobalit.com/en/strongbox/">Strongbox</a></small>
+</BODY>
+</HTML>
+

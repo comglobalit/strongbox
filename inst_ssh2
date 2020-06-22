@@ -1,0 +1,122 @@
+#!/bin/sh
+
+
+
+
+os=`uname`
+
+if [ "$os" = "Linux" ]
+then
+    cpflags="-a"
+else
+    if [ "$os" = "FreeBSD" ]
+    then
+        cpflags="-Rp"
+    else
+        echo "Can't determine cp flags for OS '$os'"
+        exit
+    fi
+fi
+
+
+cgibin=`find .. -maxdepth 3 -name 'cgi-bin' | grep -v sbinstall | head -1`
+
+if [ -d '../docs' ]
+then
+    docroot='../docs'
+fi
+if [ -f '../index.html' -o -f '../index.htm' -o -f '../index.php' ]
+then
+    docroot='..'
+fi
+if [ -d '../html' ]
+then
+    docroot='../html'
+fi
+if [ -d '../public_html' ]
+then
+    docroot='../public_html'
+fi
+if [ -d '../httpdocs' ]
+then
+    docroot='../httpdocs'
+fi
+if [ -d '../htdocs' ]
+then
+    docroot='../htdocs'
+fi
+
+
+user=`ls -ald $docroot/index.* | awk '{print $3}' | head -1`
+group=`ls -ald $docroot/index.* | awk '{print $4}' | head -1`
+
+hts=`find $docroot -maxdepth 2 -name .htaccess -exec grep -li 'require valid' {} \;` 
+memdir='unknown'
+if [ -d "$docroot/members" ]
+then
+    memdir="$docroot/members"
+else
+    if [ -n "$hts" ]
+    then
+        if grep -li 'require valid' $hts
+        then
+           memdir=`grep -li 'require valid' $hts | sed "s@\($docroot/.*\)/\.htaccess@\1@" | grep -v sbinstall | head -1`
+           memdir=`echo "$memdir" | sed s@/.htaccess@@`
+        fi
+    fi
+fi
+
+echo -n "docroot: "; ls -ld $docroot
+echo -e "cgibin: $cgibin\nuser: $user\nmemdir: $memdir\n"
+echo -n "Continue? (y/N): "
+read line
+if [ "$line" != "y" ]
+then
+    exit
+fi
+
+
+if [ -z "$uid" ]
+then
+    uid=1
+fi
+if [ -n "$UID" ]
+then
+    uid=$UID
+fi
+if [ $uid -eq 0 ]
+then
+    chown -R $user:$group .
+fi
+
+cp $cpflags sblogin $docroot/sblogin
+cp $cpflags cgi-bin/sblogin $cgibin/sblogin
+
+chmod 777 $docroot/sblogin/report/pages
+chmod 755 $cgibin/sblogin/*.cgi $cgibin/sblogin/report/*.cgi
+chmod 666 $cgibin/sblogin/.htpasslog
+chmod 777 $cgibin/sblogin/.htcookie
+
+if [ -f "$memdir/.htaccess_old" ]
+then
+   echo "$memdir/.htaccess_old already exists"
+else
+    echo -n "current directory is "
+    pwd
+    vi $memdir/.htaccess; mv $memdir/.htaccess  $memdir/.htaccess_old
+    cp $cpflags members/* members/.htaccess $memdir/
+fi
+
+cp $cgibin/sblogin/config.default.pl $cgibin/sblogin/config.pl
+vi $cgibin/sblogin/config.pl
+
+if [ $uid -eq 0 ]
+then
+    perl -MCPAN -e 'install("Inline")'
+    perl -MCPAN -e 'install("LWP")'
+fi
+
+echo -e "Delete sbinstall when you're done using:\ncd .. ; rm -rf sbinstall"
+
+
+

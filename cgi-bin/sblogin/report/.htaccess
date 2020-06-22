@@ -1,0 +1,104 @@
+# StrongBox version 5.0
+# Copyright 2001 - 2015
+# Ray Morris <support@bettercgi.com>
+
+
+#AddType video/x-ms-wmv .wmv
+# AcceptPathInfo on
+
+<IfModule mod_headers.c>
+    Header add X-UA-Compatible IE=edge
+</IfModule>
+
+# Symlinks must be set for Plesk servers
+# Options +SymLinksIfOwnerMatch
+
+RewriteEngine On
+
+ RewriteRule /* - [E=sessionfiles:%{DOCUMENT_ROOT}/../cgi-bin/sblogin/.htcookie]
+ RewriteCond %{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie -d
+ RewriteRule /* - [E=sessionfiles:%{DOCUMENT_ROOT}/cgi-bin/sblogin/.htcookie]
+
+ RewriteCond %{HTTP_USER_AGENT} (.{1,250})
+ RewriteRule /* - [E=useragent:%1]
+ RewriteCond %{HTTP_ACCEPT} (.{1,250})
+ RewriteRule /* - [E=accept:%1]
+
+ RewriteCond %{HTTP_USER_AGENT} PLAYSTATION
+ RewriteCond %{HTTP_ACCEPT} ^$
+ RewriteRule /* - [E=accept:ImAStupidPlaystation]
+
+ RewriteCond %{HTTP_USER_AGENT} "Android 2.2"
+ RewriteRule /* - [E=accept:*/*]
+
+ RewriteRule /* - [E=host_root:%{HTTP_HOST}]
+ RewriteCond %{HTTP_HOST} ^sb[0-9a-z]+\.(.*)
+ RewriteRule /* - [E=host_root:%1,S=1]
+ RewriteCond %{HTTP_HOST} ^www\.(.*)
+ RewriteRule /* - [E=host_root:%1]
+
+ RewriteCond %{HTTP_COOKIE} sbsession\ ?=\ ?(sb[0-9a-z]+)
+ RewriteRule /* - [E=sbsession:%1]
+
+ RewriteCond %{QUERY_STRING} sbsession=(sb[0-9a-z]+)
+ RewriteRule /* - [E=sbsession:%1]
+
+ RewriteCond %{HTTP_REFERER} ^http://(sb[0-9a-z]+)\.
+ RewriteRule /* - [E=sbsession:%1]
+
+ RewriteCond %{HTTP_HOST} ^(sb[0-9a-zA-Z]+)\.
+ RewriteRule /* - [E=sbsession:%1]
+
+ RewriteCond %{HTTP_COOKIE} &sbuser\ ?=\ ?([^;\&]+)
+ RewriteRule /* - [E=REMOTE_USER:%1]
+
+ # For stupid PHP scripts that don't use the standard variable REMOTE_USER:
+ RewriteRule /* - [E=PHP_AUTH_USER:%{ENV:REMOTE_USER}]
+
+
+ # IE on Mac may include the port in the host header
+ RewriteCond %{ENV:host_root} ^(.*):80$
+ RewriteRule /* - [E=host_root:%1]
+
+ RewriteCond %{ENV:sbsession} ^$
+ RewriteRule /* http://%{ENV:host_root}/sblogin/report.shtml%{REQUEST_URI} [L,QSA]
+
+ RewriteRule \.ram http://%{ENV:sbsession}.%{ENV:host_root}/cgi-bin/sblogin/makeram.cgi%{REQUEST_URI} [R,NS,L,NC,QSA]
+
+ RewriteCond %{ENV:accept} html
+ RewriteCond %{HTTP_USER_AGENT} ^$
+ RewriteRule /* http://%{ENV:host_root}/sblogin/report.shtml%{REQUEST_URI} [L,QSA]
+
+ RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
+ RewriteRule /*slurp* /cgi-bin/sblogin/anti_s.l.u.r.p.cgi [L]
+
+ BrowserMatch "MSIE" brokenvary=1
+ BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+ BrowserMatch "Opera" !brokenvary
+ SetEnvIf brokenvary 1 force-no-vary
+
+
+ RewriteCond %{HTTP_HOST} !^sb
+ RewriteCond %{REQUEST_URI} !sbredir.php
+ RewriteCond %{HTTP_COOKIE} !sbcookiesonly=yes
+ RewriteRule /* http://%{ENV:sbsession}.%{ENV:host_root}%{REQUEST_URI} [R,L,NE]
+
+ RewriteRule ([^/]+)$ - [E=basename:$1]
+ RewriteCond %{ENV:sessionfiles}/%{ENV:sbsession}.%{ENV:host_root}/%{ENV:basename} -f
+ RewriteRule /* - [S=3]
+
+ RewriteRule (\.3gp|\.asf|\.asx|\.avi|\.m4v|\.mov|\.movie|\.mp4|\.mpe|\.mpeg|\.mpg|\.rar|\.rm|\.ogm|\.qt|\.w4v|\.wm|\.wmx|\.wvx|\.wma|\.wax|\.wmz|\.wmv|\.wmd|\.zip)$ http://%{ENV:sbsession}.%{ENV:host_root}/cgi-bin/sblogin/video2.cgi%{REQUEST_URI} [R,NS,L,NC,QSA]
+
+
+ RewriteCond %{HTTP_ACCEPT} !html
+ RewriteCond %{ENV:sessionfiles}/%{ENV:sbsession}.%{ENV:host_root}/%{HTTP_USER_AGENT}/ -d
+ RewriteCond %{ENV:sessionfiles}/%{ENV:sbsession}.%{ENV:host_root}/admin -f
+ RewriteRule /* - [S=1]
+
+ RewriteCond %{ENV:sessionfiles}/%{ENV:sbsession}.%{ENV:host_root}/admin !-f [OR]
+ RewriteCond %{ENV:sessionfiles}/%{ENV:sbsession}.%{ENV:host_root}/%{HTTP_USER_AGENT}/%{HTTP_ACCEPT}/%{ENV:sbsession}.%{ENV:host_root} !-f
+ RewriteRule /* http://%{ENV:host_root}/sblogin/report.shtml%{REQUEST_URI}
+
+
+
+
