@@ -9,5 +9,5 @@ $_SERVER['REMOTE_USER'] = $strongbox->get_sbuser_session();
 $killme = $strongbox->sbsession_kill($_SERVER['REMOTE_USER']);
 session_destroy();
 
-header( 'Location: http://www.famousdick.com/tour/' );
+header( "Location: http://$_SERVER['HTTP_HOST']/" );
 ?>
