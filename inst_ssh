@@ -1,4 +1,4 @@
-10.0.2.1
+Instructions to install via SSH:
 
 ------------
 # Strongbox:
@@ -6,44 +6,13 @@
 
 # Step 1: Make "sbinstall" directory IN the same directory containing 
 #         /cgi-bin/ and then cd into newly created /sbinstall/ :
-  mkdir sbinstall; cd sbinstall;
+mkdir sbinstall; cd sbinstall;
 
-rsync -avp --exclude=.svn --exclude=.backups /home/raymorris/sb/sb5/install/ USER@DOMAIN:PATH/sbinstall/
+# Step2: Transfer files
+rsync -avp --exclude=.svn --exclude=.backups ~/strongbox/ USER@DOMAIN:PATH/sbinstall/
 
 # Step 3: "Install" Strongbox:
   ./inst_ssh2
-
-
----------------------------------
-
-
---------------
-# Throttlebox:
---------------
-
-# Step 1: Make "tbinstall" directory IN the same directory containing 
-#         /cgi-bin/ and then cd into newly created /tbinstall/ :
-  mkdir tbinstall; cd tbinstall;
-
-
-# Step 2: SECURELY copy the files FROM our machine up TO the 
-#         server where we're installing Throttlebox by running:
-  scp -pr </local-path/> user@domain.com:</path-to-put-files/>
-
-  # EX: scp -pr /home/raymorris/scripts/throttlebox/distrib/ user@mysite.com:/home/user/site.com/tbinstall/
-  # IF a port number is being used, do this:
-  # scp -pr -P #### /home/raymorris/scripts/throttlebox/distrib/ user@mysite.com:/home/user/site.com/tbinstall/
-
-
-# Step 3: Remove all svn folders on THEIR server.  From INSIDE /tbinstall/ run:
-  find . -name '.svn' -exec rm -rf "{}" \;
-
-
-# Step 4: "Activate" Throttlebox:
-  ./inst_ssh2
-
-./inst_ssh2_tb
-
 
 ---------------------------------
 
@@ -51,48 +20,16 @@ rsync -avp --exclude=.svn --exclude=.backups /home/raymorris/sb/sb5/install/ USE
 --------------
 # OTHER files:
 --------------
-# **IF** any other files are needed, say, from sb/extra/, get those files, too:
+# **IF** any other files are needed, say, from extra, get those files, too:
 
 # EX: the 2 wordpress plugins:
-  # scp -pr /home/raymorris/sb/extra/wordpress/relative-links-sb2.php user@mysite.com:/home/user/site.com/<whatever>/wp-content/plugins/
-  # scp -pr /home/raymorris/sb/extra/wordpress/include-cron.php user@mysite.com:/home/user/site.com/<whatever>/wp-content/plugins/
+  # scp -pr strongbox/extra/wordpress/relative-links-sb2.php user@mysite.com:/home/user/example.com/<whatever>/wp-content/plugins/
+  # scp -pr strongbox/extra/wordpress/include-cron.php user@mysite.com:/home/user/example.com/<whatever>/wp-content/plugins/
 
-#  OR *with* port number:
-
-  # scp -pr -P #### /home/raymorris/sb/extra/wordpress/relative-links-sb2.php user@mysite.com:/home/user/site.com/<whatever>/wp-content/plugins/
-  # scp -pr -P #### /home/raymorris/sb/extra/wordpress/include-cron.php user@mysite.com:/home/user/site.com/<whatever>/wp-content/plugins/
 
 
 --------------------------------------------------
 --------------------------------------------------
 
-# OLD WAY:
 
------------
-# Strongbox
------------
-  mkdir sbinstall; cd sbinstall;
-  ssh -p 2222 -l raymorris raydesk1.bettercgi.com "cd /home/raymorris/sb/install; tar -z -B --exclude .svn --preserve --atime-preserve --sparse -cf -  ." | tar -p -B -xzvf -
-
-# Remove all svn folders:
-  find . -name '.svn' -exec rm -rf "{}" \;
-
-# "Install" Strongbox:
-./inst_ssh2
-
-
--------------
-# Throttlebox
--------------
-  mkdir tbinstall; cd tbinstall;
-  ssh -p 2222 -l raymorris raydesk1.bettercgi.com "cd /home/raymorris/scripts/throttlebox/distrib; tar -z --exclude .svn -B --preserve --atime-preserve --sparse -cf -  htdocs cgi-bin docs inst_ssh2_tb" | tar -p -B -xzvf -
-
-# Remove all svn folders:
-  find . -name '.svn' -exec rm -rf "{}" \;
-
-# Activate Throttlebox: 
-  ./inst_ssh2_tb
-
---------------------------------------------------
---------------------------------------------------
 
