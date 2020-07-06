@@ -1,14 +1,4 @@
 #!/usr/bin/perl
-
-# Strongbox version 5.1
-#   Copyright 2016 - 2018 Elias Torres <strongbox@comglobalit.com>
-#   Copyright 2001 - 2015 Ray Morris <support@bettercgi.com>
-# All rights reserved.
-#   Copyright information: https://www.comglobalit.com/en/docs/strongbox/copyright/
- 
-# See our on-line documentation at
-#   https://www.comglobalit.com/en/docs/strongbox/
-
  
 sub mkhtcookie() {
     my ($sbsession, $host, $admin_attempt) = @_;
