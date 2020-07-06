@@ -1,20 +1,38 @@
-# The password file is at:
-# $ENV{'DOCUMENT_ROOT'}/#HTPASSWD#
+# Strongbox version 5.1
+# https://github.com/comglobalit/strongbox
+#
+# Copyright 2016 - 2020 Elias Torres https://github.com/eliastorres
+# Copyright 2001 - 2015 Ray Morris 
+# All rights reserved.
+# Copyright information: https://www.comglobalit.com/en/docs/strongbox/copyright/
 
-AddType video/x-ms-wmv .wmv
+# See our on-line documentation at
+# https://github.com/comglobalit/strongbox/wiki
 
-# StrongBox version 2.3
-# Copyright 2001 - 2008
-# Ray Morris <support@webmastersguide.com>
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    # PROCESSOR INSTALLERS -  Do not replace this file.
    # To find or set the path to the .htpasswd file,
    # look in cgi-bin/sblogin/config.pl
 
-   # To add dialer IPs, edit the section immediately
-   # below.  Do not use any allow or deny directives.
+   # To add dialer IPs, edit the section below.
+   # Do not use any allow or deny directives.
    # This .htaccess uses only pattern matching.
+
+# Please find information about Strongbox
+# at our on-line documentation:
+#  https://github.com/comglobalit/strongbox/wiki
+
+# The password file is located:
+# $ENV{'DOCUMENT_ROOT'}/#HTPASSWD#
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+<IfModule mod_headers.c>
+    Header add X-UA-Compatible IE=edge
+    Header add X-Powered-By "Protected by Strongbox https://github.com/comglobalit/strongbox"
+</IfModule>
 
 RewriteEngine On
 # CCBill Dialer IPs
