@@ -113,7 +113,8 @@ sub get_wm_msg {
     
     $msg .= "\nRemote IP: $ENV{'REMOTE_ADDR'}\n";
     $msg .= "\nDomain: $host\n\n";
-    $msg .= " Learn about How to Help customers who have trouble logging in:\nhttps://www.comglobalit.com/en/docs/strongbox/helping-customers/\n";
+    $msg .= "\nEmail Notifications: https://github.com/comglobalit/strongbox/wiki/Strongbox-Notification-Emails\n\n";
+    $msg .= " Learn about How to Help customers who have trouble logging in:\nhttps://github.com/comglobalit/strongbox/wiki/Helping-Customers-Who-Have-Trouble-Logging-In\n";
     $msg .= "Strongbox documentation: https://github.com/comglobalit/strongbox/wiki\n\n";
 
     return $msg;
