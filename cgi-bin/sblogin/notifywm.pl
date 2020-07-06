@@ -114,11 +114,7 @@ sub get_wm_msg {
     $msg .= "\nRemote IP: $ENV{'REMOTE_ADDR'}\n";
     $msg .= "\nDomain: $host\n\n";
     $msg .= " Learn about How to Help customers who have trouble logging in:\nhttps://www.comglobalit.com/en/docs/strongbox/helping-customers/\n";
-    $msg .= "\n\nPlease renew your Annual Strongbox support subscription at:\n";
-    $msg .= "  https://www.comglobalit.com/en/strongbox/\n\n";
-    $msg .= "Send support requests to: strongbox\@comglobalit.com Mention your domain $host and Ticket# if available\n";
-    $msg .= "https://www.comglobalit.com/en/strongbox/\n\n";
-    $msg .= "Comglobal IT S.A.\n\n";
+    $msg .= "Strongbox documentation: https://github.com/comglobalit/strongbox/wiki\n\n";
 
     return $msg;
 }
