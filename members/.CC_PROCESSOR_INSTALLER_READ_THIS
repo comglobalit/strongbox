@@ -5,5 +5,5 @@
 # using the example IPs as a guide. 
 # Do not use any allow or deny directives.
 # This .htaccess uses only pattern matching
+# Read more at https://github.com/comglobalit/strongbox/wiki/Strongbox-Authentication-Methods
                                                                                                     
-
