@@ -1,13 +1,13 @@
 # Strongbox version 5.1
-# https://www.comglobalit.com/en/strongbox/
+# https://github.com/comglobalit/strongbox
 #
-# Copyright 2016 - 2017 Elias Torres <strongbox@comglobalit.com>
+# Copyright 2016 - 2020 Elias Torres https://github.com/eliastorres
 # Copyright 2001 - 2015 Ray Morris <support@bettercgi.com>
 # All rights reserved.
 # Copyright information: https://www.comglobalit.com/en/docs/strongbox/copyright/
 
 # See our on-line documentation at
-# https://www.comglobalit.com/en/docs/strongbox/
+# https://github.com/comglobalit/strongbox/wiki
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,7 +21,7 @@
 
 # Please find information about Strongbox
 # at our on-line documentation:
-#  https://www.comglobalit.com/en/docs/strongbox/authentication-methods/
+#  https://github.com/comglobalit/strongbox/wiki
 
 # The password file is located:
 # $ENV{'DOCUMENT_ROOT'}/#HTPASSWD#
@@ -31,8 +31,10 @@
 
 <IfModule mod_headers.c>
     Header add X-UA-Compatible IE=edge
-    Header add X-Powered-By "Protected by Strongbox https://www.comglobalit.com/en/strongbox/"
+    Header add X-Powered-By "Protected by Strongbox https://github.com/comglobalit/strongbox"
 </IfModule>
+
+
 
 RewriteEngine On
 
