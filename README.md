@@ -1,6 +1,5 @@
 # What is Strongbox?
 Strongbox is a software that protects websites from stolen passwords, password sharing, brute force attacks.
-strongbox
 
 ## Who should use Strongbox?
 Any organization that requires a secure authentication (a secure login page).
