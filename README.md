@@ -19,7 +19,7 @@ Strongbox is designed for websites that require a secure login system, especiall
 * Protects web applications and their subscribers from brute force attacks (thousands of username & password guessing by hackers from lots of locations, incredibly quickly, causing serious problems like slow/down websites or data breaches).
 * Allows webmasters restrict logins by country.
 * Stops account sharing: it suspends usernames if they are used from several locations (different networks or countries).
-* Secure Single Sign-On (SSO): secure links between Strongbox protected websites.
+* [Secure Single Sign-On SSO](https://github.com/comglobalit/strongbox/wiki/Single-Sign-On-(SSO)-with-Strongbox-Handoff): secure links between Strongbox protected websites.
 * Webmaster and developer friendly.
 * It uses an optional advanced Human Verification system (CAPTCHA), that appears only after a login failure occurs.
 * Provides a web Interface for webmasters for Reports and Member Management.
