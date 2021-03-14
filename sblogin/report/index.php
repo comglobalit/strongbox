@@ -25,23 +25,23 @@
          <a href="#manual" onclick="showTag('div', 'manual_body'); return false;">Help &amp; FAQs</a>
          <div id="manual_body" style="display: none;">
 
-            <form action="https://www.comglobalit.com/en/" target="_blank">
+            <form action="https://github.com/comglobalit/strongbox/search" target="_blank">
 
               <legend>Top FAQs</legend>
 		<ul>
-		  <li><a href="https://www.comglobalit.com/en/docs/strongbox/helping-customers/" target="_blank">How should I help members with login problems?</a>
+		  <li><a href="https://github.com/comglobalit/strongbox/wiki/Helping-Customers-Who-Have-Trouble-Logging-In" target="_blank">How should I help members with login problems?</a>
 		  </li>
                   <li><a href="/sblogin/codes.html" target="_blank">What do the report status codes mean?</a>
                   </li>
-                  <li><a href="https://www.comglobalit.com/en/docs/strongbox/notification-emails/" target="_blank">How can I change where notification emails are sent?</a>
+                  <li><a href="https://github.com/comglobalit/strongbox/wiki/Strongbox-Notification-Emails" target="_blank">How can I change where notification emails are sent?</a>
                   </li>
-                  <li><a href="https://www.comglobalit.com/en/docs/strongbox/admin-users/" target="_blank">How do I update my Admin username/password?</a>
+                  <li><a href="https://github.com/comglobalit/strongbox/wiki/Strongbox-Admin-Users" target="_blank">How do I update my Admin username/password?</a>
                   </li>
-                  <li><a href="https://www.comglobalit.com/en/docs/strongbox/moving-to-new-server/" target="_blank">What is required to move my site to a new server?</a>
+                  <li><a href="https://github.com/comglobalit/strongbox/wiki/Moving-Strongbox-to-a-New-Server" target="_blank">What is required to move my site to a new server?</a>
                   </li>
 		</ul>
 
-              <a target="_blank" href="https://www.comglobalit.com/en/docs/strongbox/">Online Documentation</a><br />
+              <a target="_blank" href="https://github.com/comglobalit/strongbox/wiki/">Online Documentation</a><br />
               <input name="s">
               <input type="submit" value="Search">
             </form>
@@ -164,6 +164,13 @@
                            <option value="2022">2022</option>
                            <option value="2023">2023</option>
                            <option value="2024">2024</option>
+                           <option value="2025">2025</option>
+                           <option value="2026">2026</option>
+                           <option value="2027">2027</option>
+                           <option value="2028">2028</option>
+                           <option value="2029">2029</option>
+                           <option value="2030">2030</option>
+
                         </select>year
                      </label>
                   </fieldset>
@@ -239,6 +246,13 @@
                            <option value="2022">2022</option>
                            <option value="2023">2023</option>
                            <option value="2024">2024</option>
+                           <option value="2025">2025</option>
+                           <option value="2026">2026</option>
+                           <option value="2027">2027</option>
+                           <option value="2028">2028</option>
+                           <option value="2029">2029</option>
+                           <option value="2030">2030</option>
+
                         </select>year
                      </label>
                   </fieldset>
@@ -364,6 +378,13 @@
                            <option value="2022">2022</option>
                            <option value="2023">2023</option>
                            <option value="2024">2024</option>
+                           <option value="2025">2025</option>
+                           <option value="2026">2026</option>
+                           <option value="2027">2027</option>
+                           <option value="2028">2028</option>
+                           <option value="2029">2029</option>
+                           <option value="2030">2030</option>
+
                         </select>year
                      </label>
                   </fieldset>
@@ -447,6 +468,13 @@
                            <option value="2022">2022</option>
                            <option value="2023">2023</option>
                            <option value="2024">2024</option>
+                           <option value="2025">2025</option>
+                           <option value="2026">2026</option>
+                           <option value="2027">2027</option>
+                           <option value="2028">2028</option>
+                           <option value="2029">2029</option>
+                           <option value="2030">2030</option>
+
                         </select>year
                      </label>
                   </fieldset>
@@ -522,6 +550,13 @@
                            <option value="2022">2022</option>
                            <option value="2023">2023</option>
                            <option value="2024">2024</option>
+                           <option value="2025">2025</option>
+                           <option value="2026">2026</option>
+                           <option value="2027">2027</option>
+                           <option value="2028">2028</option>
+                           <option value="2029">2029</option>
+                           <option value="2030">2030</option>
+
                         </select>year
                      </label>
                   </fieldset>
@@ -662,6 +697,13 @@
                            <option value="2022">2022</option>
                            <option value="2023">2023</option>
                            <option value="2024">2024</option>
+                           <option value="2025">2025</option>
+                           <option value="2026">2026</option>
+                           <option value="2027">2027</option>
+                           <option value="2028">2028</option>
+                           <option value="2029">2029</option>
+                           <option value="2030">2030</option>
+
                         </select>year
                      </label>
 
@@ -783,9 +825,7 @@
 
 <?php $host = preg_replace ( '/^sb[0-9a-z]*\./' , '', $_SERVER['HTTP_HOST']); ?>
       <p id="copyright">
-        <a href="https://www.comglobalit.com/en/strongbox/" target="_blank">Strongbox</a> &#169; 
-         <a href="mailto:strongbox@comglobalit.com?subject=<?php echo htmlspecialchars( $host ) ?>%20-%20Strongbox%20Support" target="_blank">Comglobal IT S.A.</a> 2020 <br>
-	<a href="mailto:strongbox@comglobalit.com?subject=<?php echo htmlspecialchars( $host ) ?>%20-%20Strongbox%20Support" target="_blank">Contact the Support Team</a> (for customers with <a href="https://www.comglobalit.com/en/strongbox/#support">Support Agreement</a>)<br>
+        <a href="https://github.com/comglobalit/strongbox" target="_blank">Strongbox</a> 
       </p>
   </body>
 </html>
